@@ -10,6 +10,13 @@ npm run dev
 
 ブラウザで <http://localhost:5190/quality-incident-console> を開きます。
 
+## デプロイ（Vercel）
+
+静的サイトとして配信します。ローカル用の `dev-server.mjs` は Vercel では使いません（`server.mjs` という名前だと Vercel が Node サーバ入口と誤検出するため）。
+
+- ルート `/` と `/quality-incident-console` の両方で同じ `index.html` が開きます
+- GitHub の `main` へ push すると自動デプロイされます
+
 ## 画面フロー
 
 1. Hero: A-214の異常を起点に品質インシデントの全体像を提示

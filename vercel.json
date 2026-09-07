@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/quality-incident-console", "destination": "/index.html" },
+    { "source": "/quality-incident-console/", "destination": "/index.html" }
+  ]
+}

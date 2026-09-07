@@ -1,1 +1,12 @@
-{"name":"quality-incident-console","private":true,"type":"module","scripts":{"dev":"node server.mjs","check":"node --check src/app.js && node --check src/data.js && node --check src/views.js && node --check server.mjs"},"devDependencies":{"@playwright/test":"^1.63.0"}}
+{
+  "name": "quality-incident-console",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.mjs",
+    "check": "node --check src/app.js && node --check src/data.js && node --check src/views.js && node --check dev-server.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}
