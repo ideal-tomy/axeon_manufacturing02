@@ -1,0 +1,4 @@
+node_modules/
+qa/report.json
+qa/screens/
+.DS_Store
