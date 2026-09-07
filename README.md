@@ -12,7 +12,7 @@ npm run dev
 
 ## デプロイ（Vercel）
 
-静的サイトとして配信します。ローカル用の `dev-server.mjs` は Vercel では使いません（`server.mjs` という名前だと Vercel が Node サーバ入口と誤検出するため）。
+静的サイトとして配信します。ローカル用の `local-dev.mjs` は Vercel では使いません（`server.mjs` / `*server.mjs` だと Vercel が Node サーバ入口と誤検出するため）。
 
 - ルート `/` と `/quality-incident-console` の両方で同じ `index.html` が開きます
 - GitHub の `main` へ push すると自動デプロイされます

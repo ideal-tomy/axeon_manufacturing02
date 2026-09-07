@@ -1,0 +1,7 @@
+node_modules
+.vercel
+.env*
+qa
+local-dev.mjs
+.git
+*.md
