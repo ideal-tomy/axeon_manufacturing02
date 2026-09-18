@@ -22,12 +22,6 @@ export function mountIntro(host) {
     <div class="qi-intro-top"><span>使い方を見てみる</span><span>約55秒 · サンプル案件 A-214</span></div>
     <div class="qi-viewport" data-scene="0" data-time="0" data-paused="false">
       <div class="qi-stage" aria-hidden="true" inert></div>
-      <div class="qi-summary" hidden>
-        <span>品質対応を、次の再発防止へ。</span>
-        <h3>発見から、根拠と是正まで。</h3>
-        <div><span>優先を見る</span><b>→</b><span>写真とAI</span><b>→</b><span>原因と根拠</span><b>→</b><span>是正・承認</span></div>
-        <p>同じコンソールのまま、案件が進みます。</p>
-      </div>
       <div class="qi-hud">
         <div class="qi-dots" aria-hidden="true">${scenes.map(() => "<span></span>").join("")}</div>
         <p></p>
@@ -45,7 +39,6 @@ export function mountIntro(host) {
 
   const viewport = /** @type {HTMLElement} */ (root.querySelector(".qi-viewport"));
   const stage = /** @type {HTMLElement} */ (root.querySelector(".qi-stage"));
-  const summary = /** @type {HTMLElement} */ (root.querySelector(".qi-summary"));
   const caption = /** @type {HTMLElement} */ (root.querySelector(".qi-hud p"));
   const dots = [...root.querySelectorAll(".qi-dots span")];
   const status = /** @type {HTMLElement} */ (root.querySelector(".qi-status"));
@@ -84,9 +77,8 @@ export function mountIntro(host) {
       screenKey = nextKey;
     }
     stage.style.transform = `translate(${live.width / 2 - camera[0] * scale}px, ${168 - camera[1] * scale}px) scale(${scale})`;
-    stage.style.opacity = index === scenes.length - 1 ? "0.23" : "1";
+    stage.style.opacity = "1";
 
-    summary.hidden = index !== scenes.length - 1;
     caption.textContent = scenes[index].caption;
     dots.forEach((dot, i) => dot.classList.toggle("qi-current", i === index));
     viewport.dataset.scene = String(index);

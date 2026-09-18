@@ -161,23 +161,6 @@
   cursor: pointer;
 }
 .qi-controls button:focus-visible { outline: 3px solid #4f9acf; outline-offset: 4px; }
-.qi-summary {
-  position: absolute;
-  inset: 0 0 88px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  text-align: center;
-}
-.qi-summary > span { color: #9acbe6; font-size: 11px; }
-.qi-summary h3 { font-size: clamp(20px, 3vw, 28px); line-height: 1.6; margin: 15px 0 28px; }
-.qi-summary > div { display: flex; align-items: center; gap: 12px; font-size: 11px; flex-wrap: wrap; justify-content: center; }
-.qi-summary > div span { padding-bottom: 12px; border-bottom: 2px solid #8ac9eb; }
-.qi-summary b { font-weight: 400; color: #8ac9eb; }
-.qi-summary p { font-size: 10px; line-height: 1.8; color: #c1cfdf; margin-top: 24px; }
-
 @media (prefers-reduced-motion: reduce) {
   .qi-intro *, .qi-intro *::before, .qi-intro *::after {
     transition: none !important;
