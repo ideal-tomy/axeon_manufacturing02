@@ -1,11 +1,11 @@
 import { scenes, storyFrame, totalDuration } from "./story.js";
 import { renderScreens } from "./screens.js";
 
-/** @type {{ root: HTMLElement; clock: number; paused: boolean; reduced: boolean; visible: boolean; width: number; raf: number; last?: number; observer?: ResizeObserver; onMotion?: () => void; onVisibility?: () => void; onClick?: (e: Event) => void } | null} */
+/** @type {{ root: HTMLElement; clock: number; paused: boolean; reduced: boolean; visible: boolean; width: number; height: number; raf: number; last?: number; observer?: ResizeObserver; onMotion?: () => void; onVisibility?: () => void; onClick?: (e: Event) => void } | null} */
 let live = null;
 
 function fitFor(count) {
-  return count >= 2 ? 720 : 420;
+  return count >= 2 ? 1200 : 640;
 }
 
 /**
@@ -52,6 +52,7 @@ export function mountIntro(host) {
     reduced,
     visible: !document.hidden,
     width: viewport.getBoundingClientRect().width || 720,
+    height: viewport.getBoundingClientRect().height || 448,
     raf: 0,
   };
   /** @type {string} */
@@ -76,7 +77,8 @@ export function mountIntro(host) {
       stage.innerHTML = renderScreens({ stars, focus });
       screenKey = nextKey;
     }
-    stage.style.transform = `translate(${live.width / 2 - camera[0] * scale}px, ${168 - camera[1] * scale}px) scale(${scale})`;
+    const midY = live.height * 0.4;
+    stage.style.transform = `translate(${live.width / 2 - camera[0] * scale}px, ${midY - camera[1] * scale}px) scale(${scale})`;
     stage.style.opacity = "1";
 
     caption.textContent = scenes[index].caption;
@@ -164,6 +166,7 @@ export function mountIntro(host) {
   live.observer = new ResizeObserver(([entry]) => {
     if (!live) return;
     live.width = entry.contentRect.width;
+    live.height = entry.contentRect.height;
     paint();
   });
   live.observer.observe(viewport);

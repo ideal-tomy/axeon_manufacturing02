@@ -19,14 +19,14 @@
 }
 .qi-intro-top span:first-child { color: #fff; font-weight: 600; }
 .qi-viewport {
-  height: 424px;
+  height: 448px;
   position: relative;
   overflow: hidden;
   background: radial-gradient(ellipse at 50% 40%, #263b53, #101c2b 80%);
 }
 .qi-stage {
-  width: 1460px;
-  height: 350px;
+  width: 2360px;
+  height: 370px;
   position: absolute;
   transform-origin: 0 0;
   will-change: transform;
@@ -35,7 +35,7 @@
   position: absolute;
   top: 8px;
   height: 334px;
-  width: 340px;
+  width: 560px;
   background: #f6f8fb;
   color: #263b50;
   overflow: hidden;
@@ -56,10 +56,10 @@
   box-shadow: none;
   pointer-events: none;
 }
-.qi-dash { left: 20px; }
-.qi-incident { left: 380px; }
-.qi-cause { left: 740px; }
-.qi-capa { left: 1100px; }
+.qi-dash { left: 24px; }
+.qi-incident { left: 608px; }
+.qi-cause { left: 1192px; }
+.qi-capa { left: 1776px; }
 .qi-device-bar {
   height: 28px;
   background: #e8eef5;
@@ -79,10 +79,10 @@
   position: relative;
 }
 .qi-scale {
-  transform: scale(0.36);
+  transform: scale(0.495);
   transform-origin: top left;
-  width: 944px;
-  height: 850px;
+  width: 1120px;
+  height: 900px;
   pointer-events: none;
 }
 .qi-scale .console-head { margin-bottom: 16px; }
@@ -91,14 +91,43 @@
 .qi-scale .bottom-action { display: none; }
 .qi-scale .report-actions { display: none; }
 
-/* Show the useful slice of wide console layouts */
-.qi-incident .qi-scale { transform: scale(0.4); width: 850px; }
-.qi-cause .qi-scale { transform: scale(0.38) translateX(-40px); width: 980px; }
-.qi-cause.qi-focus-graph .qi-scale { transform: scale(0.42) translateX(-220px); }
-.qi-cause.qi-focus-evidence .qi-scale { transform: scale(0.42) translate(-520px, -40px); }
-.qi-capa.qi-focus-plan .qi-scale { transform: scale(0.4) translateX(-20px); }
-.qi-capa.qi-focus-report .qi-scale { transform: scale(0.4) translate(-40px, -220px); }
-.qi-dash .qi-scale { transform: scale(0.38) translateX(-10px); }
+/* Keep the real desktop layout inside the window, even on a narrow page */
+.qi-intro .qi-scale .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); }
+.qi-intro .qi-scale .dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr);
+  gap: 20px;
+}
+.qi-intro .qi-scale .priority-body { display: grid; grid-template-columns: 46% 1fr; gap: 20px; }
+.qi-intro .qi-scale .incident-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
+  gap: 20px;
+}
+.qi-intro .qi-scale .metadata { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.qi-intro .qi-scale .root-grid {
+  display: grid;
+  grid-template-columns: 220px minmax(320px, 1fr) 280px;
+  gap: 16px;
+}
+.qi-intro .qi-scale .causes-panel { grid-column: auto; }
+.qi-intro .qi-scale .corrective-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 16px;
+}
+.qi-intro .qi-scale .approval { grid-column: auto; }
+.qi-intro .qi-scale .report-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 20px;
+}
+.qi-intro .qi-scale .incident-row {
+  display: grid;
+  grid-template-columns: 48px 1.7fr 1fr 1fr 72px auto;
+}
+
+.qi-capa.qi-focus-report .qi-scale { transform: scale(0.495) translateY(-260px); }
 
 /* Focus states inside cause / capa */
 .qi-cause.qi-focus-graph .evidence-strip,
@@ -167,8 +196,12 @@
     animation: none !important;
   }
 }
+@media (max-width: 900px) {
+  .qi-viewport { height: 380px; }
+}
 @media (max-width: 700px) {
   .qi-intro-top { padding: 13px 12px; font-size: 9px; }
+  .qi-viewport { height: 320px; }
   .qi-hud { padding: 14px 12px; }
   .qi-hud p { font-size: 12px; }
   .qi-controls { padding: 8px 12px; flex-wrap: wrap; }
