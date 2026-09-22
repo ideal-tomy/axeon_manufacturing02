@@ -12,8 +12,9 @@ const labels=['ダッシュボード','不具合詳細','原因調査','是正�
 const icons=['▦','▣','⌁','✓'];
 
 syncSelectionEntry();
+const embedIntro=new URLSearchParams(location.search).get('embed')==='intro';
 const boot=startPageFromQuery();
-if(boot==='dashboard') go(1);
+if(!embedIntro && boot==='dashboard') go(1);
 
 function flash(msg){
   let el=document.querySelector('.qi-toast');
@@ -39,6 +40,14 @@ function shell(content){
 
 function render(){
   unmountIntro();
+  if(embedIntro){
+    document.body.classList.add('qi-embed-intro');
+    app.innerHTML='<div id="qi-intro-root" class="qi-intro-slot"></div>';
+    const host=document.getElementById('qi-intro-root');
+    if(host) mountIntro(host);
+    return;
+  }
+  document.body.classList.remove('qi-embed-intro');
   app.innerHTML=state.page===0?`<div class="hero-shell">${Hero()}</div>`:shell([null,Dashboard,Incident,RootCause,Corrective][state.page]());
   if(state.page===0){
     const host=document.getElementById('qi-intro-root');

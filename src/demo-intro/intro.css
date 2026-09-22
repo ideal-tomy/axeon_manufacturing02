@@ -7,6 +7,21 @@
   overflow: hidden;
   box-shadow: 0 18px 44px #203a5514;
 }
+
+/* 厳選版詳細への iframe 埋め込み（?embed=intro） */
+body.qi-embed-intro {
+  margin: 0;
+  background: #111e2e;
+}
+body.qi-embed-intro #app {
+  min-height: 100dvh;
+}
+body.qi-embed-intro .qi-intro {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 100dvh;
+}
 .qi-intro * { box-sizing: border-box; }
 .qi-intro-top {
   padding: 15px 20px;
