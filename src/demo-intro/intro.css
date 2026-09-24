@@ -221,3 +221,34 @@ body.qi-embed-intro .qi-intro {
   .qi-hud p { font-size: 12px; }
   .qi-controls { padding: 8px 12px; flex-wrap: wrap; }
 }
+
+/* 操作画面だけ（?embed=intro&view=stage） */
+html.qi-embed-stage-root,
+html.qi-embed-stage-root body,
+body.qi-embed-stage,
+body.qi-embed-stage #app,
+.qi-intro-stage {
+  margin: 0;
+  min-height: 0 !important;
+  background: #fff !important;
+  box-shadow: none;
+}
+.qi-intro-stage {
+  border-radius: 0;
+  overflow: visible;
+  color: #1c2740;
+}
+.qi-intro-stage .qi-viewport {
+  height: 360px;
+  background: #fff;
+}
+.qi-motion {
+  margin: 12px auto 0;
+  max-width: 580px;
+  padding: 0 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: #26418e;
+}
